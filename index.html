@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Guía para Ale · Baile, Aeróbico y Bienestar · Con Imágenes de Rutina</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(145deg, #fff5f0 0%, #ffe9df 100%);
+      font-family: 'Segoe UI', 'Quicksand', system-ui, -apple-system, 'Helvetica Neue', sans-serif;
+      color: #4a2a2a;
+      padding: 1.5rem;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    /* Encabezado con dedicatoria */
+    .hero {
+      background: linear-gradient(125deg, #d95b5b, #c74a4a);
+      border-radius: 2rem;
+      padding: 1.8rem 2rem;
+      margin-bottom: 2rem;
+      color: white;
+      box-shadow: 0 15px 25px rgba(170, 60, 60, 0.25);
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+    }
+
+    .hero h1 span {
+      background: #ffe0a3;
+      color: #b34141;
+      padding: 0.2rem 0.9rem;
+      border-radius: 50px;
+      font-size: 1.1rem;
+      display: inline-block;
+      margin-top: 0.5rem;
+    }
+
+    .mensaje-dedicado {
+      background: rgba(255, 245, 225, 0.2);
+      backdrop-filter: blur(8px);
+      border-radius: 1.8rem;
+      padding: 0.8rem 1.3rem;
+      margin: 1rem auto 0;
+      max-width: 90%;
+      font-size: 1rem;
+      font-weight: 500;
+      border-left: 5px solid #ffd966;
+    }
+
+    .badge-love {
+      background: #fff0e0;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #b34141;
+      padding: 0.3rem 1rem;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 0.75rem;
+      margin-top: 1rem;
+    }
+
+    .principios {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.8rem;
+      margin: 1rem 0;
+    }
+
+    .pill {
+      background: white;
+      border-radius: 60px;
+      padding: 0.3rem 1rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #c24a4a;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    }
+
+    .week-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 1.8rem;
+      margin: 2rem 0;
+    }
+
+    .day-card {
+      background: white;
+      border-radius: 2rem;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.05);
+      transition: all 0.25s;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .day-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 28px rgba(190, 80, 80, 0.12);
+    }
+
+    .day-header {
+      background: #fff3eb;
+      padding: 0.9rem 1.2rem;
+      border-bottom: 2px solid #ffe0cf;
+    }
+
+    .day-name {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #aa4a4a;
+    }
+
+    .day-focus {
+      font-size: 0.75rem;
+      background: #ffede3;
+      display: inline-block;
+      padding: 0.2rem 0.8rem;
+      border-radius: 30px;
+      font-weight: 600;
+      margin-top: 0.3rem;
+      color: #b65555;
+    }
+
+    .day-body {
+      padding: 1rem 1.2rem 1.3rem;
+      flex: 1;
+    }
+
+    .workout-list {
+      list-style: none;
+      margin: 0.5rem 0;
+    }
+
+    .workout-list li {
+      font-size: 0.85rem;
+      padding: 0.35rem 0;
+      display: flex;
+      align-items: baseline;
+      gap: 0.5rem;
+      border-bottom: 1px dashed #ffe0cf;
+    }
+
+    .workout-list li::before {
+      content: "🕺";
+      color: #e07c5c;
+      font-size: 0.8rem;
+    }
+
+    .routine-img {
+      margin: 0.8rem 0;
+      text-align: center;
+      background: #fefaf5;
+      border-radius: 1.2rem;
+      padding: 0.5rem;
+      border: 1px solid #ffe0cf;
+    }
+
+    .routine-img img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 1rem;
+      display: block;
+      margin: 0 auto;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    .img-caption {
+      font-size: 0.65rem;
+      color: #b57a5a;
+      margin-top: 0.3rem;
+    }
+
+    .note-soft {
+      background: #fef6e8;
+      border-radius: 1.2rem;
+      padding: 0.6rem 0.8rem;
+      font-size: 0.7rem;
+      margin: 0.6rem 0;
+      color: #a55a5a;
+      border-left: 3px solid #f3b68b;
+    }
+
+    .time-badge {
+      background: #fff0e8;
+      border-radius: 30px;
+      padding: 0.2rem 0.7rem;
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: #b74b4b;
+      display: inline-block;
+      margin-top: 0.6rem;
+    }
+
+    .video-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #c74a4a;
+      color: white;
+      text-decoration: none;
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 0.4rem 0.9rem;
+      border-radius: 40px;
+      margin-top: 0.8rem;
+      transition: 0.2s;
+      border: none;
+    }
+
+    .video-link:hover {
+      background: #a53a3a;
+      gap: 10px;
+      transform: scale(1.02);
+    }
+
+    .extra-note {
+      font-size: 0.7rem;
+      color: #9c6b5b;
+      margin-top: 0.6rem;
+      border-top: 1px dotted #f3cfbf;
+      padding-top: 0.5rem;
+    }
+
+    .tips-especiales {
+      background: #fff7f0;
+      border-radius: 1.8rem;
+      padding: 1.2rem 1.5rem;
+      margin: 1.5rem 0;
+      border: 1px solid #ffe0cf;
+    }
+
+    .grid-consejos {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 0.8rem;
+    }
+
+    .consejo {
+      flex: 1;
+      background: white;
+      border-radius: 1.2rem;
+      padding: 0.7rem 1rem;
+      font-size: 0.85rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+    }
+
+    footer {
+      background: #fce7db;
+      border-radius: 1.6rem;
+      text-align: center;
+      padding: 1.2rem;
+      margin-top: 2rem;
+      font-size: 0.8rem;
+    }
+
+    @media (max-width: 780px) {
+      body { padding: 0.9rem; }
+      .hero h1 { font-size: 1.5rem; }
+      .week-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="hero">
+    <h1>✨ GUÍA DE MOVIMIENTO & BIENESTAR ✨ <br> <span>para Ale, con todo mi corazón ❤️</span></h1>
+    <div class="mensaje-dedicado">
+      🌸 "Ale, esta guía está hecha pensando en TI: en tus ritmos, en tu alegría al bailar y en fortalecernos juntos sin prisa, pero con mucho propósito. Cada día es un regalo para cuidar tu espalda, tus glúteos, tus brazos y sobre todo tu sonrisa. ¡Vamos a movernos con cariño!" 🌸
+    </div>
+    <div class="badge-love">
+      🎵 BAILA · AERÓBICO SUAVE · TONIFICA SIN EXIGIR · SALUD INTEGRAL · VIDEOS CON MÚSICA AGRADABLE
+    </div>
+    <div class="principios">
+      <span class="pill">💃 Espalda fuerte</span>
+      <span class="pill">🍑 Glúteo activo</span>
+      <span class="pill">💪 Brazos tonificados (sin sobrecarga)</span>
+      <span class="pill">🦵 Piernas ligeras</span>
+      <span class="pill">🧘 Bienestar emocional</span>
+    </div>
+  </div>
+
+  <h2 style="font-weight: 600; margin-bottom: 0.2rem;">📅 Semana de Movimiento Consciente · 30-40 min diarios</h2>
+  <p style="margin-bottom: 1rem; font-size: 0.85rem;">🌈 Cada día incluye su infografía y enlaces a videos con música alegre.</p>
+  
+  <div class="week-grid">
+    
+    <!-- LUNES: RITMO Y TONIFICACIÓN -->
+    <div class="day-card">
+      <div class="day-header">
+        <div class="day-name">Lunes · 🌟 Ritmo y tonificación</div>
+        <div class="day-focus">🕺 Baile latino + glúteo suave + brazos ligeros</div>
+      </div>
+      <div class="day-body">
+        <ul class="workout-list">
+          <li>🎵 Calentamiento: 5' movilidad cadera y brazos con música alegre.</li>
+          <li>💃 15' baile y coreografía (salsa, merengue).</li>
+          <li>🍑 10' glúteo suave + brazos ligeros: círculos con brazos, elevaciones laterales con botellas.</li>
+          <li>🧘 Vuelta calma 5' estiramientos globales.</li>
+        </ul>
+        <div class="routine-img">
+          <img src="lunes_ale.png" alt="Infografía lunes Ale - ritmo y tonificación" loading="lazy">
+          <div class="img-caption">📌 Lunes: Baile latino, glúteo suave y brazos ligeros</div>
+        </div>
+        <div class="note-soft">✨ Consejo Ale: Siente la música, no importa la técnica perfecta.</div>
+        <a class="video-link" href="https://www.youtube.com/results?search_query=zumba+suave+alegre+para+principiantes" target="_blank">🎬 VIDEO SUGERIDO: Zumba suave / baile alegre</a>
+        <a class="video-link" href="https://www.youtube.com/results?search_query=ejercicios+gluteos+sin+impacto+musica+relajante" target="_blank">🍑 Video extra: glúteos suaves con música</a>
+        <div class="time-badge">⏱️ 35-40 min · bajo impacto</div>
+      </div>
+    </div>
+
+    <!-- MARTES: ESPALDA FELIZ Y PIERNAS -->
+    <div class="day-card">
+      <div class="day-header">
+        <div class="day-name">Martes · 🌿 Espalda feliz y piernas</div>
+        <div class="day-focus">🧘 Fortalecimiento postural + aeróbico suave</div>
+      </div>
+      <div class="day-body">
+        <ul class="workout-list">
+          <li>🔥 5' calentamiento: marcha en el sitio + balanceos.</li>
+          <li>🦵 12' aeróbico bajo impacto: step toques, talones al glúteo.</li>
+          <li>🧘‍♀️ Espalda: gato-vaca, extensiones suaves, remo sin peso.</li>
+          <li>🍑 + pierna: zancadas cortas, elevaciones de cadera.</li>
+          <li>💆‍♀️ Vuelta calma 5' estiramiento de espalda.</li>
+        </ul>
+        <div class="routine-img">
+          <img src="martes_ale.png" alt="Infografía martes Ale - espalda y piernas" loading="lazy">
+          <div class="img-caption">📌 Martes: Espalda saludable y piernas tonificadas</div>
+        </div>
+        <div class="note-soft">💡 Una espalda fuerte te ayudará a bailar más libre.</div>
+        <a class="video-link" href="https://www.youtube.com/results?search_query=ejercicios+para+espalda+sin+pesas+musica+suave" target="_blank">🎬 VIDEO: Espalda saludable (estiramientos y tono)</a>
+        <a class="video-link" href="https://www.youtube.com/results?search_query=aerobicos+de+bajo+impacto+musica+feliz+para+mujeres" target="_blank">🎵 Aeróbico suave con música alegre</a>
+        <div class="time-badge">⏱️ 38 min · cuidado postural</div>
+      </div>
+    </div>
+
+    <!-- MIÉRCOLES: BAILE TERAPÉUTICO -->
+    <div class="day-card">
+      <div class="day-header">
+        <div class="day-name">Miércoles · 💃 Día de Baile Terapéutico</div>
+        <div class="day-focus">🎶 Cardio divertido · glúteo y brazos definición suave</div>
+      </div>
+      <div class="day-body">
+        <ul class="workout-list">
+          <li>🎧 8' calentamiento: pasos de salsa, merengue en el sitio.</li>
+          <li>💃 20' bailoterapia / cardio divertido.</li>
+          <li>🍑 6' glúteo: sentadillas sumo, patada lateral apoyada.</li>
+          <li>💪 6' brazos: curl de bíceps con bandas o latas.</li>
+          <li>🧘 Enfriamiento 5' estiramientos globales.</li>
+        </ul>
+        <div class="routine-img">
+          <img src="miercoles_ale.png" alt="Infografía miércoles Ale - baile terapéutico" loading="lazy">
+          <div class="img-caption">📌 Miércoles: Bailoterapia, glúteo y brazos sin impacto</div>
+        </div>
+        <div class="note-soft">🎵 Ale, el baile es medicina para el alma. ¡Disfruta!</div>
+        <a class="video-link" href="https://www.youtube.com/results?search_query=bailoterapia+40+minutos+musica+alegre" target="_blank">🎬 VIDEO: Bailoterapia 40 min · coreografías divertidas</a>
+        <a class="video-link" href="https://www.youtube.com/results?search_query=tonificar+brazos+sin+pesas+musica+agradable+mujer" target="_blank">💪 Brazos tonificados sin esfuerzo (con música)</a>
+        <div class="time-badge">⏱️ 40 min · felicidad cardiovascular</div>
+      </div>
+    </div>
+
+    <!-- JUEVES: CUERPO COMPLETO CONSCIENTE -->
+    <div class="day-card">
+      <div class="day-header">
+        <div class="day-name">Jueves · 🌸 Cuerpo completo consciente</div>
+        <div class="day-focus">🦩 Movilidad + tonificación global sin impacto</div>
+      </div>
+      <div class="day-body">
+        <ul class="workout-list">
+          <li>🌀 5' respiración profunda y estiramientos lumbares.</li>
+          <li>🧘 12' piernas: puente de una pierna, sentadilla isométrica.</li>
+          <li>🤸 12' espalda: remo con banda, pájaro-perro.</li>
+          <li>💪 Brazos: aperturas y círculos invertidos (definición ligera).</li>
+          <li>🤗 Vuelta calma 5' con estiramientos suaves.</li>
+        </ul>
+        <div class="routine-img">
+          <img src="jueves_ale.png" alt="Infografía jueves Ale - cuerpo completo consciente" loading="lazy">
+          <div class="img-caption">📌 Jueves: Movilidad, tonificación integral y respiración</div>
+        </div>
+        <div class="note-soft">🌟 La salud integral también significa escuchar tu cuerpo.</div>
+        <a class="video-link" href="https://www.youtube.com/results?search_query=movilidad+articular+para+todo+el+cuerpo+musica+relajante" target="_blank">🎬 VIDEO: Movilidad suave y estiramientos (música calmada)</a>
+        <a class="video-link" href="https://www.youtube.com/results?search_query=tonificar+gluteos+y+piernas+sin+salto+ritmo+suave" target="_blank">🍑 Glúteo y piernas · bajo impacto</a>
+        <div class="time-badge">⏱️ 35-40 min · equilibrio total</div>
+      </div>
+    </div>
+
+    <!-- VIERNES: CELEBRACIÓN SEMANAL -->
+    <div class="day-card">
+      <div class="day-header">
+        <div class="day-name">Viernes · 🎉 Celebración semanal</div>
+        <div class="day-focus">💖 Baile estilo cardio dance + glúteo y brazos</div>
+      </div>
+      <div class="day-body">
+        <ul class="workout-list">
+          <li>🎵 7' calentamiento: movimientos laterales con ritmo alegre.</li>
+          <li>💃 15' baile estilo cardio dance (salsa, cumbia, aeróbic).</li>
+          <li>🍑 10' súper circuito glúteo + puente con elevación de brazos.</li>
+          <li>💪 5' brazos tonificación suave + estiramientos finales.</li>
+          <li>🧘 Vuelta calma 5' estiramientos globales.</li>
+        </ul>
+        <div class="routine-img">
+          <img src="viernes_ale.png" alt="Infografía viernes Ale - celebración semanal" loading="lazy">
+          <div class="img-caption">📌 Viernes: Cardio dance, glúteo activo y cierre feliz</div>
+        </div>
+        <div class="note-soft">💞 Terminamos la semana sintiéndonos orgullosas. ¡Lo lograste Ale!</div>
+        <a class="video-link" href="https://www.youtube.com/results?search_query=cardio+dance+30+min+musica+feliz+principiantes" target="_blank">🎬 VIDEO: Cardio dance alegre (30 min) · ritmo contagioso</a>
+        <a class="video-link" href="https://www.youtube.com/results?search_query=gluteos+tonificacion+musica+motivadora+para+mujer" target="_blank">🍑 Glúteos tonificados con música motivadora</a>
+        <div class="time-badge">⏱️ 40 min · energía positiva</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECCIÓN CONSEJOS ESPECIALES (salud integral) -->
+  <div class="tips-especiales">
+    <h3 style="display: flex; gap: 8px; margin-bottom: 0.5rem;">🌸 Consejos clave para Ale · salud integral y sin esfuerzo extremo</h3>
+    <div class="grid-consejos">
+      <div class="consejo"><strong>🧘 Espalda cuidada:</strong> Pausas cada hora, estirar brazos arriba. Gato-vaca diario.</div>
+      <div class="consejo"><strong>🍑 Glúteo activo:</strong> Contracciones isométricas mientras cocinas. Puentes diarios.</div>
+      <div class="consejo"><strong>💪 Brazos tonificados:</strong> Usa bandas elásticas o latas. Movimientos lentos.</div>
+      <div class="consejo"><strong>🦵 Piernas ligeras:</strong> Caminar 20-30 min + sentadillas con apoyo en pared.</div>
+      <div class="consejo"><strong>💖 Bienestar emocional:</strong> El baile reduce el cortisol. Respiración consciente.</div>
+    </div>
+  </div>
+
+  <!-- HIDRATACIÓN + NUTRICIÓN -->
+  <div style="background: #fff5ed; border-radius: 1.8rem; padding: 1.3rem 1.8rem; margin: 1rem 0;">
+    <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between;">
+      <div style="flex:1"><h3 style="color:#b15353;">🥤 Hidratación suave</h3><p style="font-size:0.85rem">1.8 - 2.2 litros de agua al día. Infusiones, agua de frutas. Durante el baile, pequeños sorbos.</p></div>
+      <div style="flex:1"><h3 style="color:#b15353;">🥗 Nutrición que abraza</h3><p style="font-size:0.85rem">Vegetales, proteínas magras, grasas saludables. Sin dietas restrictivas, solo equilibrio.</p></div>
+      <div style="flex:1"><h3 style="color:#b15353;">😴 Descanso</h3><p style="font-size:0.85rem">Dormir 7-8h. Sábados: paseo o estiramientos. Domingo: baile familiar o descanso activo.</p></div>
+    </div>
+  </div>
+
+  <!-- MENSAJE DE ÁNIMO FINAL -->
+  <div style="background: white; border-radius: 1.5rem; padding: 1rem 1.5rem; text-align: center; margin-top: 1rem;">
+    <p style="font-size: 1rem; font-weight: 500;">✨ <strong>Querida Ale:</strong> No necesitas hacer fuerza extrema. Con constancia y cariño, cada día fortaleces tu espalda, tonificas brazos y glúteos desde el respeto. El baile es tu superpoder. ¡Confía en tu proceso, preciosa! 💃✨</p>
+    <div style="margin-top: 0.8rem; font-size: 0.8rem; background: #ffefea; border-radius: 2rem; padding: 0.4rem 1rem; display: inline-block;">🧡 Hecho con amor para Ale · por quien la admira y cuida cada día 🧡</div>
+  </div>
+
+  <footer>
+    🌺 <strong>Guía personalizada para Ale</strong> · Movimiento amable, baile como terapia, imágenes explicativas (lunes_ale.png, martes_ale.png, miercoles_ale.png, jueves_ale.png, viernes_ale.png).<br>
+    🎵 Los enlaces son búsquedas sugeridas en YouTube; elige los videos con la música que más te guste (zumba, bailoterapia, cardio dance). Prioriza siempre sensaciones placenteras.<br>
+    📍 Objetivo: espalda fuerte, glúteos tonificados, brazos definidos, piernas ágiles y salud plena. ¡Tú puedes, Ale!
+  </footer>
+</div>
+</body>
+</html>
